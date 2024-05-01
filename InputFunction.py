@@ -13,6 +13,7 @@ token_patterns = [
     (r'\^', 'EXP_OP'),             # Match exponentiation operator
     (r'\(', 'LPAREN'),             # Match left parenthesis
     (r'\)', 'RPAREN'),             # Match right parenthesis
+    (r'=', 'ASSIGN'),              # Match assignment operator
 ]
 
 def tokenize(expression):
