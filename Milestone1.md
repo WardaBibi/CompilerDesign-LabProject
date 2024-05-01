@@ -102,6 +102,29 @@
     - A letter can be any lowercase or uppercase alphabetical character.
     - Example: `a`, `b`, `c`, `X`, `Y`, `Z`
 
-### Explanation
-
 These grammar rules define the syntax of the expression language, allowing for the construction of valid arithmetic expressions involving numbers, variables, and basic arithmetic operations. Each rule contributes to forming valid expressions by specifying the allowable combinations and order of elements in the language.
+
+# Input Handling and Tokenization Implementation Explanation
+
+## Regular Expressions Setup:
+
+We define regular expressions (regex) patterns to match various token types in the input expression. Each pattern is associated with a token type, such as numbers, operators, keywords (like `PRINT` and `INPUT`), identifiers, and parentheses.
+
+## Tokenization Function (`tokenize`):
+
+This function iterates over the input expression and attempts to match each part of the expression with the defined regex patterns to identify tokens. It uses a loop to continue processing the input expression until it's fully tokenized. Within the loop, it iterates over the list of regex patterns and tries to match each pattern with the beginning of the remaining input expression using the `match` method. If a match is found, it extracts the matched value and token type, adds them to the list of tokens, and removes the matched portion from the input expression using slicing. If no match is found for any pattern, it raises a `ValueError` indicating that the input expression is invalid.
+
+## Token Storage:
+
+The tokens are stored in a list (`tokens`) to keep track of the extracted tokens.
+
+## Error Handling:
+
+The function handles errors gracefully by raising a `ValueError` with an appropriate error message if the input expression contains invalid characters or syntax.
+
+## Example Usage:
+
+The example usage section prompts the user to enter an arithmetic expression. It calls the `tokenize` function to tokenize the input expression. If the tokenization is successful, it prints the resulting tokens; otherwise, it catches and handles any `ValueError` raised during the tokenization process.
+
+This implementation efficiently tokenizes arithmetic expressions according to the provided grammar rules, enabling further processing such as parsing and evaluation. It utilizes regex patterns to match different token types, making the tokenization process flexible and extensible for handling various expressions.
+
